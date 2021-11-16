@@ -12,6 +12,8 @@ This was primarily made to help less tech-savvy people like my Dad to be able to
 
 # Quick Start
 
+Ensure that you are able to SSH in using SSH keys.
+
 Run `web.py` as a daemon:
 ```
 screen -dmS "flaskServer" python3 web.py

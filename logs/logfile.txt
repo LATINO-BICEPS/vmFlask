@@ -8,3 +8,13 @@
 [16/11/2021 23:38:27] Domain 'win10-2' is being shutdown
 [16/11/2021 23:38:27] 
 [16/11/2021 23:38:29] Shutting Down Now
+[17/11/2021 00:16:48] Domain 'win10-2' started
+[17/11/2021 00:16:48] 
+[17/11/2021 00:21:26] 
+[17/11/2021 00:21:28] Domain 'win10-2' is being shutdown
+[17/11/2021 00:21:28] 
+[17/11/2021 00:21:28] Shutting Down Now
+[17/11/2021 00:35:45] Shutting Down Now
+[17/11/2021 00:35:37] Domain 'win10-2' is being shutdown
+[17/11/2021 00:35:37] 
+[17/11/2021 00:35:46] Shutting Down Now

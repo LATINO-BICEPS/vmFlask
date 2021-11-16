@@ -19,12 +19,12 @@ app = Flask('flaskshell')
 
 ip_whitelist = ["127.0.0.1", "192.168.1.244"]
 vmStatus = "Offline"
-hostname = "192.168.1.244"
+hostname = "192.168.1.198" # the VM Host (my PC)
 user = "collin@"
 logDir = "./logs/logfile.txt"
 timeout = 2*1000
 vmName = "win10-2"
-
+guestIP = "192.168.1.64"
 # Set target IP, port and command to send
 smartplugIP = "192.168.1.230"
 port = 9999
@@ -162,8 +162,9 @@ def turnOff(vmName):
 def checkVMStatus():
     global vmStatus
     global hostname
+    global guestIP
     try:
-        subprocess.check_output(["ping", "-c", "1", "192.168.122.64"])
+        subprocess.check_output(["ping", "-c", "1", guestIP])
         vmStatus = "Online"
         return jsonify('', render_template('status.html', x=vmStatus))
     except:
