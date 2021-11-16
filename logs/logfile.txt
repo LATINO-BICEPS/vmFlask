@@ -1,0 +1,10 @@
+[16/11/2021 23:24:54] Domain 'win10-2' started
+[16/11/2021 23:24:54] 
+[16/11/2021 23:25:36] Domain 'win10-2' is being shutdown
+[16/11/2021 23:25:36] 
+[16/11/2021 23:25:39] Shutting Down Now
+[16/11/2021 23:36:54] Domain 'win10-2' started
+[16/11/2021 23:36:54] 
+[16/11/2021 23:38:27] Domain 'win10-2' is being shutdown
+[16/11/2021 23:38:27] 
+[16/11/2021 23:38:29] Shutting Down Now

@@ -1,0 +1,53 @@
+html {
+    background-color: black;
+}
+#header {
+    border: 2px rgb(255, 255, 255) solid;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 15px;
+    font-size: 11rem;
+    border-radius: 8px;
+}
+
+#vmStatus p {
+    font-size: 10rem;
+    text-align: center;
+    padding-bottom: 60px;
+}
+
+p {
+    font-size: 3rem;
+    margin: 20px 15px;
+    color: white;
+    text-align: center;
+}
+
+
+.button {
+    font-size: 8rem;
+    text-align: center;
+    padding: 2rem 5rem;
+    margin: 10% 9%;
+    display: inline-block;
+    border-radius: 10px;
+    width: 30%;
+    box-shadow: 0 13px #999;
+}
+.button:active {
+    box-shadow: 0 8px #666;
+    transform: translateY(4px);
+  }
+
+#On:hover {
+    background-color: green;
+    transition-duration: 0.4s;
+
+}
+
+#Off:hover {
+    background-color: red;
+    transition-duration: 0.4s;
+
+}
+

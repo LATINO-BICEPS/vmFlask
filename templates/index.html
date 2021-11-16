@@ -1,0 +1,39 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(function(){
+        window.setInterval(function(){
+            checkVMStatus()
+        }, 6000)
+
+    function checkVMStatus(){
+        $.ajax({
+            url:"/update",
+            type: "POST",
+            dataType: "json",
+            success: function(data){
+                $(vmStatus).replaceWith(data)
+            }
+
+        });
+    }
+});
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VM Status</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <h1 id=header>Racing</h1>
+    <div id="vmStatus">
+        <p>{{x}}</p>
+    </div>
+    <p>Please press the button once only and <b>wait for 10 seconds</b> before trying again.</p>
+    <form method="post" action="/"> 
+        <input class=button id=on type="submit" name="Turn On" value="Turn On">
+        <input class=button id =off type="submit" name="Turn Off" value="Turn Off">
+    </form>
+</body>
+</html> 
