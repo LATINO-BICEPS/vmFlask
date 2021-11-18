@@ -18,3 +18,61 @@
 [17/11/2021 00:35:37] Domain 'win10-2' is being shutdown
 [17/11/2021 00:35:37] 
 [17/11/2021 00:35:46] Shutting Down Now
+[17/11/2021 00:38:45] Domain 'win10-2' started
+[17/11/2021 00:38:45] 
+[17/11/2021 00:42:31] Domain 'win10-2' is being shutdown
+[17/11/2021 00:42:31] 
+[17/11/2021 00:42:31] Shutting Down Now
+[17/11/2021 00:48:06] Domain 'win10-2' started
+[17/11/2021 00:48:06] 
+[17/11/2021 00:53:36] Domain 'win10-2' is being shutdown
+[17/11/2021 00:53:36] 
+[17/11/2021 00:53:36] Shutting Down Now
+[17/11/2021 00:57:25] Domain 'win10-2' started
+[17/11/2021 00:57:25] 
+[17/11/2021 01:01:04] Domain 'win10-2' is being shutdown
+[17/11/2021 01:01:04] 
+[17/11/2021 01:01:04] Shutting Down Now
+[17/11/2021 01:10:45] Shutting Down Now
+[17/11/2021 01:12:34] 
+[17/11/2021 01:12:35] Shutting Down Now
+[17/11/2021 01:13:35] Shutting Down Now
+[17/11/2021 01:14:56] 
+[17/11/2021 01:14:57] Shutting Down Now
+[17/11/2021 01:15:59] 
+[17/11/2021 01:23:04] Domain 'win10-2' started
+[17/11/2021 01:23:04] 
+[17/11/2021 01:24:28] Domain 'win10-2' is being shutdown
+[17/11/2021 01:24:28] 
+[17/11/2021 01:24:28] Shutting Down Now
+[17/11/2021 01:28:45] Domain 'win10-2' started
+[17/11/2021 01:28:45] 
+[17/11/2021 01:28:45] Setting cpu: 0
+[17/11/2021 01:28:45] Setting cpu: 1
+[17/11/2021 01:28:45] Setting cpu: 2
+[17/11/2021 01:28:45] Setting cpu: 3
+[17/11/2021 01:28:45] Setting cpu: 4
+[17/11/2021 01:28:45] Setting cpu: 5
+[17/11/2021 01:28:45] Setting cpu: 6
+[17/11/2021 01:28:45] Setting cpu: 7
+[17/11/2021 01:28:45] Setting cpu: 8
+[17/11/2021 01:28:45] Setting cpu: 9
+[17/11/2021 01:28:45] Setting cpu: 10
+[17/11/2021 01:28:45] Setting cpu: 11
+[17/11/2021 01:32:35] 
+[17/11/2021 01:32:36] Shutting Down Now
+[17/11/2021 13:21:22] 
+[17/11/2021 13:21:22] Setting cpu: 0
+[17/11/2021 13:21:22] Setting cpu: 1
+[17/11/2021 13:21:22] Setting cpu: 2
+[17/11/2021 13:21:22] Setting cpu: 3
+[17/11/2021 13:21:22] Setting cpu: 4
+[17/11/2021 13:21:22] Setting cpu: 5
+[17/11/2021 13:21:22] Setting cpu: 6
+[17/11/2021 13:21:22] Setting cpu: 7
+[17/11/2021 13:21:22] Setting cpu: 8
+[17/11/2021 13:21:22] Setting cpu: 9
+[17/11/2021 13:21:22] Setting cpu: 10
+[17/11/2021 13:21:22] Setting cpu: 11
+[17/11/2021 14:04:38] 
+[17/11/2021 14:04:38] Shutting Down Now

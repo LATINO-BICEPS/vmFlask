@@ -14,21 +14,24 @@ import json
 import ast
 from struct import pack
 
-# courtesy of https://www.youtube.com/watch?v=v2TSTKlrPwo
+# live updating with ajax on flask from https://www.youtube.com/watch?v=v2TSTKlrPwo
 app = Flask('flaskshell')
 
+# user & vm variables
 ip_whitelist = ["127.0.0.1", "192.168.1.244"]
-vmStatus = "Offline"
-hostname = "192.168.1.198" # the VM Host (my PC)
 user = "collin@"
-logDir = "./logs/logfile.txt"
-timeout = 2*1000
+hostname = "192.168.1.198" # the VM Host (my PC)
 vmName = "win10-2"
 guestIP = "192.168.1.64"
+timeout = 10*1000 # specify how many seconds before shutdown
+logDir = "./logs/logfile.txt"
+password = "#Hong07195#" # sudo user need to change to env var later
 # Set target IP, port and command to send
 smartplugIP = "192.168.1.230"
 port = 9999
 
+# not important
+vmStatus = "Offline"
 
 def encrypt(string):
     key = 171
@@ -98,12 +101,14 @@ def logOutput(output):
 def turnOn(vmName):
     global hostname
     global user
+    global password
     global smartplugIP
     global port
     # turn the computer on first if it's not on already
     if(isPoweredOff()):
-        print("It is powered off.")
-        #send_hs_command(smartplugIP, port, '{"system":{"set_relay_state":{"state":1}}}')
+        print("It is powered off. Turning it on now.")
+        send_hs_command(smartplugIP, port, '{"system":{"set_relay_state":{"state":1}}}')
+        time.sleep(70) # modify to boot time
     else: print("It is powered on.")
     # ssh in then turn the vm on
     ssh = subprocess.Popen(["ssh", user + hostname],
@@ -113,10 +118,11 @@ def turnOn(vmName):
                              universal_newlines=True, 
                              bufsize=0)
     ssh.stdin.write("virsh start {0}\n".format(vmName))
-    ssh.stdin.write("sudo cpupower frequency-set -g performance")
-    ssh.stdin.close()
+    # ssh.stdin.write("sudo cpupower frequency-set -g performance") # needs to be fixed. sudo is broken
+    # ssh.stdin.close()
+    output = ssh.communicate()
     logOutput(ssh.stdout)
-    print("{0} is starting.".format(vmName))
+    
 
 def turnOff(vmName):
     global logDir
@@ -154,9 +160,9 @@ def turnOff(vmName):
                              stderr=subprocess.PIPE, 
                              universal_newlines=True, 
                              bufsize=0)
-        ssh.stdin.write("shutdown now")
-        time.sleep(10)
-        #send_hs_command(smartplugIP, port, '{"system":{"set_relay_state":{"state":0}}}')
+        ssh.stdin.write("sudo shutdown -h now")
+        time.sleep(10) # how long it takes to shutdown
+        send_hs_command(smartplugIP, port, '{"system":{"set_relay_state":{"state":0}}}')
 
 @app.route('/update', methods=['POST'])
 def checkVMStatus():
