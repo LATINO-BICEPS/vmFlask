@@ -86,7 +86,7 @@ def valid_ip():
         return True
     else:
         return False
-
+# takes a tuple and formats it: [11/11/2021 08:21] output
 def logOutput(output):
     # disable welcome messages to reduce junk logs sudo chmod -x /etc/update-motd.d/*
     global logDir
@@ -117,18 +117,16 @@ def turnOn(vmName):
                              stderr=subprocess.PIPE, 
                              universal_newlines=True, 
                              bufsize=0)
-    ssh.stdin.write("virsh start {0}\n".format(vmName))
-    # ssh.stdin.write("sudo cpupower frequency-set -g performance") # needs to be fixed. sudo is broken
-    # ssh.stdin.close()
-    output = ssh.communicate()
+    ssh.stdin.write("virsh start {0}\n".format(vmName))    
+    ssh.stdin.close()
     logOutput(ssh.stdout)
-    
 
 def turnOff(vmName):
     global logDir
     global timeout
     global smartplugIP
     global port
+    global password
     # shutdown vm
     ssh = subprocess.Popen(["ssh", user + hostname],
                              stdin=subprocess.PIPE, 
@@ -141,7 +139,7 @@ def turnOff(vmName):
     ssh.stdin.write("if virsh domstate {0} | grep 'running'; then virsh destroy win10-2; fi;".format(vmName))
     ssh.stdin.close()
     logOutput(ssh.stdout)
-    print("{0} is shutting down.".format(vmName))
+
     # https://stackoverflow.com/questions/51647603/python-tkinter-destroy-window-after-time-or-on-click
     # warn user before shutting down PC
     try:
@@ -153,6 +151,7 @@ def turnOff(vmName):
         logOutput(['PC is Still in Use\n',])
     except TclError:
         logOutput(["Shutting Down Now\n",])
+
         # gracefully shutdown PC first
         ssh = subprocess.Popen(["ssh", user + hostname],
                              stdin=subprocess.PIPE, 
@@ -160,11 +159,18 @@ def turnOff(vmName):
                              stderr=subprocess.PIPE, 
                              universal_newlines=True, 
                              bufsize=0)
-        ssh.stdin.write("sudo shutdown -h now")
+        sudo = subprocess.Popen(["sudo", "-S", "shutdown", "-h", "now"],
+                             stdin=subprocess.PIPE, 
+                             stdout=subprocess.PIPE, 
+                             stderr=subprocess.PIPE, 
+                             universal_newlines=True, 
+                             bufsize=0).communicate(password)
+        
         time.sleep(10) # how long it takes to shutdown
         send_hs_command(smartplugIP, port, '{"system":{"set_relay_state":{"state":0}}}')
 
 @app.route('/update', methods=['POST'])
+# checks if the VM is online/offline
 def checkVMStatus():
     global vmStatus
     global hostname
